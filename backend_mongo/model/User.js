@@ -1,10 +1,21 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
 
-const BlogPost = new Schema({
-  author: ObjectId,
-  title: String,
-  body: String,
-  date: Date
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+    name:{type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    password:{
+        type:String,
+        required:true,
+        minlength:6
+    }
 });
+
+export default mongoose.model("User",userSchema);
