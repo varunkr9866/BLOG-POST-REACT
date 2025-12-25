@@ -1,20 +1,19 @@
 import express from "express";
 import mongoose from "mongoose";
+import blogRouter from "./routes/blog-routes.js";
 import router from "./routes/user-routes.js";
-
-
+import cors from "cors";
 const app = express();
-
-// middleware
+app.use(cors());
 app.use(express.json());
-
-// FIXED ROUTE
 app.use("/api/user", router);
-
+app.use("/api/blog", blogRouter);
 mongoose
-  .connect("mongodb://localhost:27017/Blog")
-  .then(() => {
-    app.listen(5000);
-    console.log("Connected to MongoDB and listening on port 5000");
-  })
+  .connect(
+    "mongodb://localhost:27017/Blog"
+  )
+  .then(() => app.listen(5000))
+  .then(() =>
+    console.log("Connected TO Database and Listening TO Localhost 5000")
+  )
   .catch((err) => console.log(err));
