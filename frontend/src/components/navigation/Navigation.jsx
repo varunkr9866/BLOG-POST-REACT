@@ -7,7 +7,7 @@ export default function Navigation() {
       <nav className="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div className="container px-4 px-lg-5">
           <Link className="navbar-brand" to="/">
-            Start Bootstrap
+            Blog Bootstrap
           </Link>
 
           <button
