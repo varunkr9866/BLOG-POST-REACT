@@ -1,13 +1,13 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 export default function Navigation() {
   return (
     <div >
       <nav className="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div className="container px-4 px-lg-5">
-          <a className="navbar-brand" href="index.html">
+          <Link className="navbar-brand" to="/">
             Start Bootstrap
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -23,27 +23,27 @@ export default function Navigation() {
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ms-auto py-4 py-lg-0">
               <li className="nav-item">
-                <a className="nav-link px-lg-3 py-3 py-lg-4" href="index.html">
+                <Link className="nav-link px-lg-3 py-3 py-lg-4" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link px-lg-3 py-3 py-lg-4" href="about.html">
+                <Link className="nav-link px-lg-3 py-3 py-lg-4" to="about">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link px-lg-3 py-3 py-lg-4" href="post.html">
+                <Link className="nav-link px-lg-3 py-3 py-lg-4" to="post">
                   Sample Post
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link px-lg-3 py-3 py-lg-4"
-                  href="contact.html"
+                  to="contact.html"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
