@@ -1,13 +1,14 @@
 import React from "react";
 
 export default function Contact() {
-    
   return (
     <div>
-      {/* <!-- Page Header--> */}
+      {/* Page Header */}
       <header
         className="masthead"
-        myStyle={"background-image: url('assets/img/contact-bg.jpg')"}
+        style={{
+          backgroundImage: "url('/assets/img/contact-bg.jpg')",
+        }}
       >
         <div className="container position-relative px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -22,7 +23,8 @@ export default function Contact() {
           </div>
         </div>
       </header>
-      {/* <!-- Main Content--> */}
+
+      {/* Main Content */}
       <main className="mb-4">
         <div className="container px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -31,6 +33,7 @@ export default function Contact() {
                 Want to get in touch? Fill out the form below to send me a
                 message and I will get back to you as soon as possible!
               </p>
+
               <div className="my-5">
                 <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                   <div className="form-floating">
@@ -41,7 +44,7 @@ export default function Contact() {
                       placeholder="Enter your name..."
                       data-sb-validations="required"
                     />
-                    <label for="name">Name</label>
+                    <label htmlFor="name">Name</label>
                     <div
                       className="invalid-feedback"
                       data-sb-feedback="name:required"
@@ -49,6 +52,7 @@ export default function Contact() {
                       A name is required.
                     </div>
                   </div>
+
                   <div className="form-floating">
                     <input
                       className="form-control"
@@ -57,7 +61,7 @@ export default function Contact() {
                       placeholder="Enter your email..."
                       data-sb-validations="required,email"
                     />
-                    <label for="email">Email address</label>
+                    <label htmlFor="email">Email address</label>
                     <div
                       className="invalid-feedback"
                       data-sb-feedback="email:required"
@@ -71,6 +75,7 @@ export default function Contact() {
                       Email is not valid.
                     </div>
                   </div>
+
                   <div className="form-floating">
                     <input
                       className="form-control"
@@ -79,7 +84,7 @@ export default function Contact() {
                       placeholder="Enter your phone number..."
                       data-sb-validations="required"
                     />
-                    <label for="phone">Phone Number</label>
+                    <label htmlFor="phone">Phone Number</label>
                     <div
                       className="invalid-feedback"
                       data-sb-feedback="phone:required"
@@ -87,15 +92,16 @@ export default function Contact() {
                       A phone number is required.
                     </div>
                   </div>
+
                   <div className="form-floating">
                     <textarea
                       className="form-control"
                       id="message"
                       placeholder="Enter your message here..."
-                      style="height: 12rem"
+                      style={{ height: "12rem" }}
                       data-sb-validations="required"
                     ></textarea>
-                    <label for="message">Message</label>
+                    <label htmlFor="message">Message</label>
                     <div
                       className="invalid-feedback"
                       data-sb-feedback="message:required"
@@ -103,6 +109,7 @@ export default function Contact() {
                       A message is required.
                     </div>
                   </div>
+
                   <br />
 
                   <div className="d-none" id="submitSuccessMessage">
@@ -123,7 +130,8 @@ export default function Contact() {
                       Error sending message!
                     </div>
                   </div>
-                  {/* <!-- Submit Button--> */}
+
+                  {/* Submit Button */}
                   <button
                     className="btn btn-primary text-uppercase disabled"
                     id="submitButton"
