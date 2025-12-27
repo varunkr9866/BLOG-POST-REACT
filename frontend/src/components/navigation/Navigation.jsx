@@ -31,8 +31,8 @@ export default function Navigation() {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link px-lg-3 py-3 py-lg-4" to="/about">
-                  About
+                <Link className="nav-link px-lg-3 py-3 py-lg-4" to="/addblog">
+                  Add Blog
                 </Link>
               </li>
 
