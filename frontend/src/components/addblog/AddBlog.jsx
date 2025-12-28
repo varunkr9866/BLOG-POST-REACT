@@ -1,38 +1,47 @@
 import React, { useState } from "react";
 
 export default function AddBlog() {
+  const userId = localStorage.getItem("userId"); // must exist
+
   const [blog, setBlog] = useState({
-    user: "",
-    image: "",
     title: "",
+    image: "",
     description: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setBlog((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setBlog({ ...blog, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(blog);
 
-    // const response = fetch('')
+    const response = await fetch("http://localhost:3000/api/blog/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...blog,
+        user: userId,
+      }),
+    });
 
-    // Optional: reset form
+    const data = await response.json();
+    console.log(data);
+
     setBlog({
-      user: "",
-      image: "",
       title: "",
+      image: "",
       description: "",
     });
   };
 
   return (
-    <>
+    <main className="container mt-5">
+
+      <h2>Create Blog</h2>
       <header
         className="masthead"
         style={{ backgroundImage: "url('/assets/img/about-bg.jpg')" }}
@@ -51,80 +60,41 @@ export default function AddBlog() {
         </div>
       </header>
 
-      <main className="mb-4">
-        <div className="container px-4 px-lg-5">
-          <div className="row gx-4 gx-lg-5 justify-content-center">
-            <div className="col-md-10 col-lg-8 col-xl-7">
-              <form onSubmit={handleSubmit} className="my-5">
 
-                {/* Author */}
-                <div className="form-floating mb-3">
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="user"
-                    placeholder="Enter your name..."
-                    value={blog.user}
-                    onChange={handleChange}
-                    required
-                  />
-                  <label>Author</label>
-                </div>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="form-control mb-3"
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={blog.title}
+          onChange={handleChange}
+          required
+        />
 
-                {/* Image URL */}
-                <div className="form-floating mb-3">
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="image"
-                    placeholder="Enter image URL..."
-                    value={blog.image}
-                    onChange={handleChange}
-                    required
-                  />
-                  <label>Image URL</label>
-                </div>
+        <input
+          className="form-control mb-3"
+          type="text"
+          name="image"
+          placeholder="Image URL"
+          value={blog.image}
+          onChange={handleChange}
+          required
+        />
 
-                {/* Title */}
-                <div className="form-floating mb-3">
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="title"
-                    placeholder="Enter title..."
-                    value={blog.title}
-                    onChange={handleChange}
-                    required
-                  />
-                  <label>Title</label>
-                </div>
+        <textarea
+          className="form-control mb-3"
+          name="description"
+          placeholder="Description"
+          value={blog.description}
+          onChange={handleChange}
+          required
+        />
 
-                {/* Description */}
-                <div className="form-floating mb-3">
-                  <textarea
-                    className="form-control"
-                    name="description"
-                    placeholder="Enter description..."
-                    style={{ height: "12rem" }}
-                    value={blog.description}
-                    onChange={handleChange}
-                    required
-                  />
-                  <label>Description</label>
-                </div>
-
-                <button
-                  className="btn btn-primary text-uppercase"
-                  type="submit"
-                >
-                  Submit
-                </button>
-
-              </form>
-            </div>
-          </div>
-        </div>
-      </main>
-    </>
+        <button className="btn btn-primary" type="submit">
+          Add Blog
+        </button>
+      </form>
+    </main>
   );
 }

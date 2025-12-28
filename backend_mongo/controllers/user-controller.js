@@ -1,9 +1,6 @@
 import User from "../model/User.js";
 import bcrypt from "bcryptjs";
 
-// ❌ REMOVE THIS LINE
-// import { getAllUser, signup, login } from "../routes/user-routes.js";
-
 export const getAllUser = async (req, res, next) => {
   let users;
   try {
