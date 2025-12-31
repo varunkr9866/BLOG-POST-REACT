@@ -6,6 +6,7 @@ import { Route,Routes } from 'react-router-dom';
 import AddBlog from './components/addblog/AddBlog.jsx';
 import Post from './components/post/Post.jsx';
 import Contact from './components/contact/Contact.jsx';
+import BlogDetail from './pages/BlogDetail.jsx';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
      <Navigation />
       <Routes>
         <Route path="/" element={<Content />} />
+        <Route path="/post/:id" element={<BlogDetail />} />
         <Route path="/addblog" element={<AddBlog />} />
         <Route path="/post" element={<Post />} />
         <Route path="/contact" element={<Contact />} />
